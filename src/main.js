@@ -16,6 +16,9 @@ import * as directives from 'vuetify/directives'
 const vuetify = createVuetify({
     components,
     directives,
+    theme: {
+        defaultTheme: localStorage.getItem("data-theme") || 'light',
+    }
 })
 
 const app = createApp(App)
