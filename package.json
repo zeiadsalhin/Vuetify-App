@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "register-service-worker": "^1.7.2",
+    "vite-plugin-pwa": "^0.16.5",
+    "vite-plugin-remove-console": "^2.1.1",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5",
     "vuetify": "^3.5.4"
