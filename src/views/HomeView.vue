@@ -4,10 +4,25 @@
 
 <template>
   <v-carousel cycle class="">
+    <v-carousel-item src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" cover>
+      <div class="text justify-center md:p-20 p-12 space-y-3 text-white drop-shadow-2xl">
+        <h1 class="text-5xl font-bold">Created with,</h1>
+        <p
+          class="inline-block text-4xl font-semibold text-green-700 drop-shadow-2xl bg-gray-100 p-1.5 rounded-md md:ml-36 ">
+          Vue
+        </p>
+        <p class="text-4xl inline-block p-1">+</p>
+        <p class="inline-block text-4xl font-semibold text-blue-300 drop-shadow-2xl p-1">Vuetify</p>
+      </div>
+    </v-carousel-item>
     <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-carousel-item>
 
     <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg" cover></v-carousel-item>
 
-    <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" cover></v-carousel-item>
+
   </v-carousel>
+  <div class="rate flex-col mx-auto text-center p-2 mt-5">
+    <p>Rate my work ;)</p>
+    <v-rating hover :length="5" :size="32" :model-value="4" active-color="teal" />
+  </div>
 </template>
