@@ -4,6 +4,7 @@ import { ref } from "vue"
 import { useTheme } from 'vuetify/lib/framework.mjs';
 import { onMounted } from 'vue';
 import footer1 from "./components/footer.vue"
+// import sidepanel from './components/sidepanel.vue'
 
 //set automatic theme
 onMounted(() => {
@@ -32,8 +33,8 @@ function changetheme() {
 
 <template>
   <v-toolbar density="default">
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     <v-toolbar-title><router-link to="/">Home</router-link></v-toolbar-title>
 
     <!-- <v-spacer></v-spacer> -->
@@ -70,20 +71,43 @@ function changetheme() {
     <RouterView />
 
   </v-fade-transition>
-
   <footer1 />
+
+  <v-layout>
+    <v-navigation-drawer v-model="drawer" :rail="rail" temporary>
+      <v-list-item prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg" title="John Leider" nav>
+        <template v-slot:append>
+          <v-btn variant="text" icon="mdi-chevron-left" @click.stop="rail = !rail"></v-btn>
+        </template>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list density="compact" nav>
+        <v-list-item prepend-icon="mdi-home-city" title="Home" value="home" to="/"></v-list-item>
+        <v-list-item prepend-icon="mdi-account" title="My Account" value="account" to="/register"></v-list-item>
+        <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
+        <v-list-item v-if="rail" prepend-icon="mdi-chevron-right" title="" value="expand"
+          @click.stop="rail = !rail"></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+  </v-layout>
 </template>
 <script>
 export default {
-  data: () => ({
-    items: [
-      { title: 'Message', icon: 'mdi-email' },
-      { title: 'Click Me', icon: 'mdi-email' },
-      { title: 'Click Me', icon: 'mdi-email' },
-      { title: 'Click Me 2', icon: 'mdi-email' },
-    ],
-  }),
-
+  data() {
+    return {
+      drawer: false,
+      rail: false,
+    }
+  },
 }
+
+const items = [
+  { title: 'Message', icon: 'mdi-email' },
+  { title: 'Click Me', icon: 'mdi-email' },
+  { title: 'Click Me', icon: 'mdi-email' },
+  { title: 'Click Me 2', icon: 'mdi-email' },
+]
 </script>
 <style scoped></style>

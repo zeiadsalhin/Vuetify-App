@@ -1,5 +1,5 @@
 <script setup>
-// import TheWelcome from '../components/TheWelcome.vue'
+// import sidepanel from '../components/sidepanel.vue'
 </script>
 
 <template>
@@ -16,13 +16,24 @@
       </div>
     </v-carousel-item>
     <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-carousel-item>
-
     <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg" cover></v-carousel-item>
-
-
   </v-carousel>
-  <div class="rate flex-col mx-auto text-center p-2 mt-5">
+
+  <v-parallax class="mt-2" src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
+    <div class="d-flex flex-column fill-height justify-center align-center text-white">
+      <h1 class="text-h4 font-weight-thin mb-4">
+        Soon
+      </h1>
+      <h4 class="subheading">
+        The new Progressive experience
+      </h4>
+    </div>
+  </v-parallax>
+
+  <v-divider></v-divider>
+  <div class="rate flex-col space-y-5 mx-auto text-center p-2 mt-5">
     <p>Rate my work ;)</p>
     <v-rating hover :length="5" :size="32" :model-value="4" active-color="teal" />
   </div>
+  <v-divider inset class="mx-auto"></v-divider>
 </template>
